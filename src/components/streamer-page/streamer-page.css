@@ -1,0 +1,25 @@
+.streamers-list {
+    display: inline;
+    padding: 0;
+}
+
+.streamers-list li {
+    width: 250px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.streamers-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.streamers-list a:hover {
+    color: white;
+}
+
+.header {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,21 @@
+.nav_menu {
+    background: #333;
+    line-height: 50px;
+    display: flex;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.nav_item {
+    color: #fff;
+    list-style: none;
+    padding: 0px 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav_item:hover {
+    color: #03071e;
+    text-decoration: none;
+    background-color: #edf6f9;
+}

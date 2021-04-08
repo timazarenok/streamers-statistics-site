@@ -1,0 +1,14 @@
+.statistic {
+    width: 1000px;
+}
+
+.table th,td {
+    background-color: white !important;
+    color: #03071e !important;
+    font-weight: bold !important;
+}
+
+.table th, td {
+    border-color: #03071e;
+    text-align: center;
+}

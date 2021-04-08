@@ -1,0 +1,27 @@
+body {
+    background-color: #edf6f9 !important;
+}
+
+.App {
+    max-width: 1500px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.section {
+    margin-right: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
