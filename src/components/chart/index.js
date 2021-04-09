@@ -34,7 +34,7 @@ const Chart = (props) => {
   }
 
   return (
-    <>
+    <div className="charts-block">
       <button className="stats-button" onClick={() => setPeriod("Month")}>
         See Full Monthly Statistics
       </button>
@@ -49,6 +49,8 @@ const Chart = (props) => {
         <div>No Data</div>
       ) : (
         <AreaChart
+          width="900px"
+          height="300px"
           discrete={true}
           curve={false}
           legend={true}
@@ -57,8 +59,7 @@ const Chart = (props) => {
           data={{ [data.name[0].date.substring(0, 10)]: data.count }}
         />
       )}
-      <br />
-    </>
+    </div>
   );
 };
 

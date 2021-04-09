@@ -20,7 +20,7 @@ const Statistic = (props) => {
   const data = notificationPerMonth.data;
 
   return (
-    <>
+    <div className="notifications-block">
       <h2>Notifications</h2>
       <Table> 
         <thead>
@@ -39,7 +39,7 @@ const Statistic = (props) => {
           ))}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

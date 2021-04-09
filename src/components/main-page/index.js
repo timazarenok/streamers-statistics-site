@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 import { getData } from "../../redux/actions";
 import Chart from "../chart";
 
-import './main.css'
+import "./main.css";
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -34,12 +34,12 @@ class MainPage extends React.Component {
         <main className="main">
           <section className="section">
             <Chart />
-            <Statistic />
           </section>
           <aside className="aside">
             <Sidebar />
           </aside>
         </main>
+        <Statistic />
       </div>
     );
   }

@@ -1,0 +1,19 @@
+.form-control {
+  width: 170px !important;
+}
+
+.login-form {
+  width: 20%;
+  height: 200px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.submit-btn {
+  width: 120px;
+  height: 35px;
+  margin: 10px;
+  border: none !important;
+  background-color: #03071e !important;
+  color: #edf6f9 !important;
+}
