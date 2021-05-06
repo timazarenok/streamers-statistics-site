@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LineChart, PieChart, AreaChart } from "react-chartkick";
+import { AreaChart } from "react-chartkick";
 import { connect } from "react-redux";
 import Loader from "../../services/loader";
 
@@ -7,17 +7,17 @@ import "./chart.css";
 
 const Chart = (props) => {
   const [data, setData] = useState(undefined);
-  const [period, setPeriod] = useState("Month");
+  const [period, setPeriod] = useState("Месяц");
 
   useEffect(() => {
     switch (period) {
-      case "Month":
+      case "Месяц":
         setData(props.streamerData.subsPerMonth);
         break;
-      case "Week":
+      case "Неделю":
         setData(props.streamerData.subsPerWeek);
         break;
-      case "Day":
+      case "День":
         setData(props.streamerData.subsPerDay);
         break;
       default:
@@ -35,28 +35,27 @@ const Chart = (props) => {
 
   return (
     <div className="charts-block">
-      <button className="stats-button" onClick={() => setPeriod("Month")}>
-        See Full Monthly Statistics
+      <button className="stats-button" onClick={() => setPeriod("Месяц")}>
+        Статистика за месяц
       </button>
-      <button className="stats-button" onClick={() => setPeriod("Week")}>
-        See Full Weekly Statistics
+      <button className="stats-button" onClick={() => setPeriod("Неделю")}>
+        Статистика за неделю
       </button>
-      <button className="stats-button" onClick={() => setPeriod("Day")}>
-        See Full Daily Statistics
+      <button className="stats-button" onClick={() => setPeriod("День")}>
+        Статистика за день
       </button>
-      <h2>Subscribers per {period}</h2>
-      {data.name[0] === undefined ? (
+      <h2>Подписчики за {period}</h2>
+      {data === undefined ? (
         <div>No Data</div>
       ) : (
         <AreaChart
-          width="900px"
-          height="300px"
+          width="100%"
+          height="400px"
           discrete={true}
           curve={false}
-          legend={true}
-          xtitle="Date"
-          ytitle="Subscribers"
-          data={{ [data.name[0].date.substring(0, 10)]: data.count }}
+          xtitle="Дата"
+          ytitle="Кол-во подписчиков"
+          data={Object.fromEntries(data.map((el) => [el.date, el.data.length]))}
         />
       )}
     </div>

@@ -3,10 +3,9 @@ import Sidebar from "./sidebar";
 import Statistic from "./statistic";
 import AppHeader from "./app-header";
 import AppNav from "./app-nav";
-import Spreadsheet from "./spreadsheet";
 
 import { connect } from "react-redux";
-import { getData } from "../../redux/actions";
+import { changeNickname, getData } from "../../redux/actions";
 import Chart from "../chart";
 
 import "./main.css";
@@ -21,6 +20,7 @@ class MainPage extends React.Component {
 
   componentDidMount() {
     this.props.getStreamerData(this.props.match.params.nickname);
+    this.props.changeNickname(this.props.match.params.nickname);
     this.setState(this.props.streamerData);
   }
 
@@ -31,14 +31,8 @@ class MainPage extends React.Component {
           <AppHeader />
           <AppNav />
         </header>
-        <main className="main">
-          <section className="section">
             <Chart />
-          </section>
-          <aside className="aside">
-            <Sidebar />
-          </aside>
-        </main>
+        <Sidebar />
         <Statistic />
       </div>
     );
@@ -52,5 +46,6 @@ export default connect(
   }),
   (dispatch) => ({
     getStreamerData: (nickname) => dispatch(getData(nickname)),
+    changeNickname: (nickname) => dispatch(changeNickname(nickname))
   })
 )(MainPage);

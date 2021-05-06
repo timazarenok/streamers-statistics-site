@@ -21,16 +21,17 @@ const Statistic = (props) => {
 
   return (
     <div className="notifications-block">
-      <h2>Notifications</h2>
+      <h2>Уведомления</h2>
       <Table> 
         <thead>
           <tr>
             <th>id</th>
-            <th>Date</th>
-            <th>Caption</th>
-            <th>Link</th>
-            <th>Messages sended</th>
-            <th>Messages deleted</th>
+            <th>Дата</th>
+            <th>Название</th>
+            <th>Ссылка</th>
+            <th>Сообщений отправлено</th>
+            <th>Сообщений удалено</th>
+            <th>Все переходы</th>
           </tr>
         </thead>
         <tbody>

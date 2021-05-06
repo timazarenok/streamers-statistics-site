@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { PieChart } from "react-chartkick";
 import "./sidebar.css";
 
 import Loader from "../../../services/loader";
 import { connect } from "react-redux";
+import { BarChart } from "react-chartkick";
 
 const Sidebar = (props) => {
   const [data, setData] = useState(undefined);
@@ -22,8 +22,17 @@ const Sidebar = (props) => {
 
   return (
     <>
-      <h2>Crossing</h2>
-      <PieChart data={data} />
+      <h2>Пересечение аудитории</h2>
+      <BarChart
+        height="400px"
+        discrete={true}
+        curve={false}
+        xtitle="Процент пересечения аудитории (%)"
+        ytitle="Стример"
+        data={Object.entries(data)
+          .map((e) => [e[0], e[1].percent])
+          .slice(0, 10)}
+      />
       <br />
     </>
   );

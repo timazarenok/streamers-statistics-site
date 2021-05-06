@@ -6,13 +6,10 @@ const AppNav = () => (
   <div className="AppNav">
     <ul className="nav_menu">
       <Link to="/" className="nav_item">
-        Login
-      </Link>
-      <Link to="/main" className="nav_item">
-        Main
+        Поиск
       </Link>
       <Link to="/admin" className="nav_item">
-        Streamers Page
+        Все стримеры
       </Link>
     </ul>
   </div>

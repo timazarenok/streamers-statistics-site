@@ -2,7 +2,6 @@ import React from "react";
 
 import StreamersItem from "./streamer-item";
 import Loader from "../../services/loader";
-import axios from "axios";
 import { connect } from "react-redux";
 import { changeNickname, getNicknames } from "../../redux/actions";
 
@@ -29,7 +28,7 @@ class StreamersPage extends React.Component {
 
     return (
       <div className="streamers">
-        <h1 className="header">Streamers</h1>
+        <h1 className="header">Все стримеры</h1>
         <ul className="streamers-list">
           {streamers.map((element) => (
             <StreamersItem element={element} handleSubmit={this.handleSubmit} />

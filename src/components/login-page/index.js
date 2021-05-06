@@ -18,7 +18,7 @@ const LoginPage = ({ value, handleChange, handleSubmit }) => {
         />
       </Form.Group>
       <Link to={"/main/" + value}>
-        <Button type="submit" className="submit-btn">Submit</Button>
+        <Button type="submit" className="submit-btn">Поиск</Button>
       </Link>
     </Form>
   );

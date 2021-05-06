@@ -45,7 +45,8 @@
 
 .info_block {
     text-align: center;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
 }
 
 .info_block p {

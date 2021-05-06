@@ -1,7 +1,7 @@
 import { CHANGE_NICKNAME, GET_STREAMER_DATA, GET_STREAMERS } from "../constants";
 import axios from 'axios'
 
-export const changeNickname = (nickname) => ({
+export const changeNickname = (nickname) => dispatch => dispatch({
   type: CHANGE_NICKNAME,
   value: nickname,
 });
