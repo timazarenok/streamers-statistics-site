@@ -22,11 +22,11 @@ export const getData = (nickname) => dispatch => {
   })
 };
 
-const getClicks = async (url) => {
-  const response = await fetch(
+export const getClicks = async (url) => {
+  const response = await axios.get(
     `http://localhost:4000/bitlyUrl?bitlyUrl=${url}`
-  );
-  return await response.json();
+  )
+  return response.data.clicksByCountry;
 };
 
 const setNicknames = (data) => ({

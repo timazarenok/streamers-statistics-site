@@ -38,6 +38,10 @@ const AppHeader = (props) => {
                 <span>{totalSubs.countOfYoutube}</span>
               </div>
               <div className="info_block">
+                <p>Twich and Youtube</p>
+                <span>{totalSubs.countOfTwicthYoutube}</span>
+              </div>
+              <div className="info_block">
                 <p>Среднее за день</p>
                 <span>{avgPerDay}</span>
               </div>
@@ -62,5 +66,5 @@ export default connect(
     nickname: state.nickname,
     streamerData: state.streamerData,
   }),
-  (dispatch) => {}
+  (dispatch) => ({})
 )(AppHeader);

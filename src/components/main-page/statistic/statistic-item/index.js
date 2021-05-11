@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { getClicks } from "../../../../redux/actions";
 
-import './statistic-item.css'
+import "./statistic-item.css";
 
 const StatisticItem = ({ element, index }) => {
+  const [data, setData] = useState([]);
+
+  const dataGetClick = () => {
+    getClicks(element.url).then(resposne => setData(resposne))
+  }
+
   return (
     <tr>
       <td>{index + 1}</td>
@@ -14,7 +21,13 @@ const StatisticItem = ({ element, index }) => {
       <td>{element.countSendTo}</td>
       <td>{element.countWhoDelete}</td>
       <td>
-        <button className="table-button">Подробнее</button>
+        {
+          data.length > 0 ? (<div>{data.map(el => <div>{el.value}: {el.clicks}</div>)}</div>) : (
+          <button className="table-button" onClick={dataGetClick}>
+            Подробнее
+          </button>)
+        }
+        
       </td>
     </tr>
   );

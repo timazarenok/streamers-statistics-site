@@ -21,6 +21,7 @@ const Statistic = (props) => {
 
   return (
     <div className="notifications-block">
+      {console.log(data)}
       <h2>Уведомления</h2>
       <Table> 
         <thead>
@@ -49,5 +50,5 @@ export default connect(
     nickname: state.nickname,
     streamerData: state.streamerData,
   }),
-  (dispatch) => {}
+  (dispatch) => ({})
 )(Statistic);

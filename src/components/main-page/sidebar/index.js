@@ -43,5 +43,5 @@ export default connect(
     nickname: state.nickname,
     streamerData: state.streamerData,
   }),
-  (dispatch) => {}
+  (dispatch) => ({})
 )(Sidebar);
