@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { AreaChart } from "react-chartkick";
+import { ColumnChart } from "react-chartkick";
 import { connect } from "react-redux";
 import Loader from "../../services/loader";
 
@@ -48,13 +48,15 @@ const Chart = (props) => {
       {data === undefined ? (
         <div>No Data</div>
       ) : (
-        <AreaChart
+        <ColumnChart
           width="100%"
           height="400px"
           discrete={true}
           curve={false}
           xtitle="Дата"
+          color="info"
           ytitle="Кол-во подписчиков"
+          colors={["5bc0de"]}
           data={Object.fromEntries(data.map((el) => [el.date, el.data.length]))}
         />
       )}

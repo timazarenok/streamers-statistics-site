@@ -1,0 +1,14 @@
+.percent-list > li {
+  max-width: 250px;
+}
+
+.more-button {
+  color: #555 !important;
+  border: none !important;
+  font-size: 15px !important;
+  background-color: transparent !important;
+}
+
+.more-button:active {
+  border: none !important;
+}

@@ -6,8 +6,16 @@ import { connect } from "react-redux";
 import { changeNickname, getNicknames } from "../../redux/actions";
 
 import "./streamer-page.css";
+import { Form } from "react-bootstrap";
 
 class StreamersPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search_input: "",
+    };
+  }
+
   componentDidMount() {
     this.props.getNicknames();
   }
@@ -16,7 +24,12 @@ class StreamersPage extends React.Component {
     this.props.changeNickname(nickname);
   };
 
+  onChangeSearch = (e) => {
+    this.setState({ search_input: e.target.value });
+  };
+
   render() {
+    const { search_input } = { ...this.state };
     const { streamers } = { ...this.props };
     if (streamers.length === 0) {
       return (
@@ -29,10 +42,25 @@ class StreamersPage extends React.Component {
     return (
       <div className="streamers">
         <h1 className="header">Все стримеры</h1>
+        <h3 className="search-header">Поиск</h3>
+        <Form.Control className="search-input" value={search_input} onChange={this.onChangeSearch} />
         <ul className="streamers-list">
-          {streamers.map((element) => (
-            <StreamersItem element={element} handleSubmit={this.handleSubmit} />
-          ))}
+          {streamers.filter(el => el.includes(search_input))
+            .sort((a, b) => {
+              if (a < b) {
+                return -1;
+              }
+              if (a > b) {
+                return 1;
+              }
+              return 0;
+            })
+            .map((element) => (
+              <StreamersItem
+                element={element}
+                handleSubmit={this.handleSubmit}
+              />
+            ))}
         </ul>
       </div>
     );

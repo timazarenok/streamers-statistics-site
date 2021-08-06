@@ -1,11 +1,11 @@
 .streamers-list {
-    display: inline;
-    padding: 0;
+    -moz-column-count: 6;
+    -webkit-column-count: 6;
+    column-count: 6;
 }
 
 .streamers-list li {
     width: 250px;
-    display: inline-block;
     margin: 5px;
 }
 
@@ -22,4 +22,16 @@
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+.search-header {
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.search-input {
+    margin-left: 20px;
+    margin-bottom: 50px;
+    width: 300px !important;
 }

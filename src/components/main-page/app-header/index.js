@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import "./app-header.css";
 
 import avatar from "./boom.jpg";
+import { Link } from "react-router-dom";
 
 const AppHeader = (props) => {
   const nickname = props.nickname;
@@ -26,8 +27,10 @@ const AppHeader = (props) => {
             <h2>{nickname}</h2>
             <div className="info_menu">
               <div className="info_block">
-                <p>Подписчики</p>
-                <span>{totalSubs.SubCount}</span>
+                <Link className="subs-link" to={`/main/${nickname}/subs`}>
+                  <p>Подписчики</p>
+                  <span>{totalSubs.SubCount}</span>
+                </Link>
               </div>
               <div className="info_block">
                 <p>Twitch</p>
@@ -38,20 +41,20 @@ const AppHeader = (props) => {
                 <span>{totalSubs.countOfYoutube}</span>
               </div>
               <div className="info_block">
-                <p>Twich and Youtube</p>
+                <p>Twich & Youtube</p>
                 <span>{totalSubs.countOfTwicthYoutube}</span>
               </div>
               <div className="info_block">
-                <p>Среднее за день</p>
-                <span>{avgPerDay}</span>
+                <p>За день</p>
+                <span>{avgPerDay.toFixed(0)}</span>
               </div>
               <div className="info_block">
-                <p>Среднее за неделю</p>
-                <span>{avgPerWeek}</span>
+                <p>За неделю</p>
+                <span>{avgPerWeek.toFixed(0)}</span>
               </div>
               <div className="info_block">
-                <p>Среднее за месяц</p>
-                <span>{avgPerMonth}</span>
+                <p>За месяц</p>
+                <span>{avgPerMonth.toFixed(0)}</span>
               </div>
             </div>
           </div>

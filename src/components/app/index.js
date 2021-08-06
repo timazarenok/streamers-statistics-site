@@ -12,6 +12,7 @@ import "./reset.css";
 import "./App.css";
 import { Switch } from "react-router";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Subs from "../subs";
 
 const App = (props) => {
   const nickname = props.nickname;
@@ -35,7 +36,8 @@ const App = (props) => {
           />
         </Route>
         <Route path="/admin" component={StreamersPage}/>
-        <Route path="/main/:nickname" component={MainPage}/>
+        <Route exact path="/main/:nickname" component={MainPage}/>
+        <Route exact path="/main/:nickname/subs" component={Subs}/>
       </Switch>
     </Router>
   );

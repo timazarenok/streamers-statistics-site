@@ -1,0 +1,9 @@
+.subs-table, .subs-header {
+  width: 50%;
+  margin: auto;
+}
+
+.subs-header {
+  font-size: 50px;
+  line-height: 72px;
+}

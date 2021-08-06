@@ -3,10 +3,11 @@ import "./sidebar.css";
 
 import Loader from "../../../services/loader";
 import { connect } from "react-redux";
-import { BarChart } from "react-chartkick";
+import { ProgressBar, Button } from "react-bootstrap";
 
 const Sidebar = (props) => {
   const [data, setData] = useState(undefined);
+  const [amount, setAmount] = useState(10);
 
   useEffect(() => {
     setData(props.streamerData.crossing);
@@ -23,16 +24,35 @@ const Sidebar = (props) => {
   return (
     <>
       <h2>Пересечение аудитории</h2>
-      <BarChart
-        height="400px"
-        discrete={true}
-        curve={false}
-        xtitle="Процент пересечения аудитории (%)"
-        ytitle="Стример"
-        data={Object.entries(data)
-          .map((e) => [e[0], e[1].percent])
-          .slice(0, 10)}
-      />
+      <ul className="percent-list">
+        {Object.entries(data)
+          .slice(0, amount)
+          .map((e) => (
+            <li>
+              <span>{e[0]}</span>
+              <ProgressBar
+                variant="info"
+                now={e[1].percent}
+                label={`${e[1].percent}%`}
+              />
+            </li>
+          ))}
+      </ul>
+      {amount > 10 ? (
+        <Button
+          className="more-button"
+          onClick={() => setAmount(10)}
+        >
+          Свернуть
+        </Button>
+      ) : (
+        <Button
+          className="more-button"
+          onClick={() => setAmount(Object.entries(data).length)}
+        >
+          Показать все
+        </Button>
+      )}{" "}
       <br />
     </>
   );

@@ -21,7 +21,6 @@ const Statistic = (props) => {
 
   return (
     <div className="notifications-block">
-      {console.log(data)}
       <h2>Уведомления</h2>
       <Table> 
         <thead>
