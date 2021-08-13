@@ -4,6 +4,7 @@ import Statistic from "./statistic";
 import AppHeader from "./app-header";
 import AppNav from "./app-nav";
 
+import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { changeNickname, getData } from "../../redux/actions";
 import Chart from "../chart";
@@ -15,24 +16,37 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       data: [],
+      nickname: this.props.match.params.nickname,
     };
   }
 
   componentDidMount() {
-    this.props.getStreamerData(this.props.match.params.nickname);
-    this.props.changeNickname(this.props.match.params.nickname);
-    this.setState(this.props.streamerData);
+    this.props.getStreamerData(this.state.nickname);
+    this.props.changeNickname(this.state.nickname);
+    this.setState({ data: this.props.streamerData });
   }
+
+  changeNicknameSearch = (nickname) => {
+    this.props.getStreamerData(nickname);
+    this.props.changeNickname(nickname);
+    this.setState({ nickname: nickname });
+  };
 
   render() {
     return (
       <div className="App">
         <header>
           <AppHeader />
-          <AppNav />
+          <AppNav handler={this.changeNicknameSearch}/>
         </header>
+        <Row className="statistics-block">
+          <Col className="col-8">
             <Chart />
-        <Sidebar />
+          </Col>
+          <Col className="col-4">
+            <Sidebar />
+          </Col>
+        </Row>
         <Statistic />
       </div>
     );
@@ -46,6 +60,6 @@ export default connect(
   }),
   (dispatch) => ({
     getStreamerData: (nickname) => dispatch(getData(nickname)),
-    changeNickname: (nickname) => dispatch(changeNickname(nickname))
+    changeNickname: (nickname) => dispatch(changeNickname(nickname)),
   })
 )(MainPage);

@@ -32,3 +32,15 @@
   margin-right: 10px;
   margin-left: 20px;
 }
+
+.search-results-list {
+  padding: 0;
+  z-index: 101;
+  position: absolute;
+  width: 250px;
+}
+
+.dropdown-item {
+  color: #555 !important;
+  background-color: white !important;
+}

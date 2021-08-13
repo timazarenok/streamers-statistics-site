@@ -1,5 +1,9 @@
 aside {
-  width: 600px;
+  width: 400px;
   margin-top: 105px !important;
   height: 350px;
+}
+
+.statistics-block {
+  display: flex;
 }

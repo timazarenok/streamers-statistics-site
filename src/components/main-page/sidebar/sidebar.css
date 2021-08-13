@@ -12,3 +12,8 @@
 .more-button:active {
   border: none !important;
 }
+
+.spreadsheets-block {
+  margin-top: 105px;
+  margin-left: 50px;
+}

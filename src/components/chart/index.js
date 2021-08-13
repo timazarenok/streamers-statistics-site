@@ -17,8 +17,8 @@ const Chart = (props) => {
       case "Неделю":
         setData(props.streamerData.subsPerWeek);
         break;
-      case "День":
-        setData(props.streamerData.subsPerDay);
+      case "6 месяцев":
+        setData(props.streamerData.subsPerHalfYear);
         break;
       default:
         setData(props.streamerData.subsPerMonth);
@@ -41,8 +41,8 @@ const Chart = (props) => {
       <button className="stats-button" onClick={() => setPeriod("Неделю")}>
         Статистика за неделю
       </button>
-      <button className="stats-button" onClick={() => setPeriod("День")}>
-        Статистика за день
+      <button className="stats-button" onClick={() => setPeriod("6 месяцев")}>
+        Статистика за 6 месяцев
       </button>
       <h2>Подписчики за {period}</h2>
       {data === undefined ? (

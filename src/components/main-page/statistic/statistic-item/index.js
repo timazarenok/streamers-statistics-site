@@ -16,7 +16,7 @@ const StatisticItem = ({ element, index }) => {
       <td className="date-td">{element.date.substring(0, 10)}</td>
       <td className="caption-td">{element.caption}</td>
       <td>
-        <a href={element.url}>{element.url}</a>
+        <a href={element.url} target="_blank">{element.url}</a>
       </td>
       <td>{element.countSendTo}</td>
       <td>{element.countWhoDelete}</td>

@@ -22,7 +22,7 @@ const Sidebar = (props) => {
   }
 
   return (
-    <>
+    <div className="spreadsheets-block">
       <h2>Пересечение аудитории</h2>
       <ul className="percent-list">
         {Object.entries(data)
@@ -54,7 +54,7 @@ const Sidebar = (props) => {
         </Button>
       )}{" "}
       <br />
-    </>
+    </div>
   );
 };
 

@@ -15,6 +15,7 @@
 
 .caption-td, .date-td {
     text-align: left;
+    font-weight: normal !important;
 }
 
 .date-td {
